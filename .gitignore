@@ -24,8 +24,5 @@ coverage
 build/
 dist/
 
-#fake data
-seed-data/summaries
-
-
+#webpack
 public/bundle.js
