@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed-data": "node ./seed-data/faker.js; seed -u 'mongodb://127.0.0.1:27017/movie-summary' ./seed-data",
+    "seed-data": "node ./seed-data/faker.js; mongoimport --db movie-summary --file seed-data/summaries.json",
     "build": "webpack -d --watch"
   },
   "dependencies": {},
