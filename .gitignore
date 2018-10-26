@@ -25,10 +25,7 @@ build/
 dist/
 
 #fake data
-
-
-
-
+seed-data/summaries
 
 
 public/bundle.js
