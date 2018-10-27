@@ -1,15 +1,19 @@
-var express = require('express');
-var app = express();
-var path = require('path');
+const express = require('express');
 
-app.use(express.static(path.resolve(__dirname, '/../public')))
+const app = express();
+const path = require('path');
+const db = require('../database/index.js');
 
+app.use(express.static(path.join(__dirname, '/../public')));
 
+app.get('/api/movies/', (req, res) => {
+  db.getSummary((err, results) => {
+    if (err) res.status(500).send(err.message);
+    res.send(results[0]);
+  });
+});
 
-
-
-
-let port = 3007;
+const port = 3007;
 app.listen(port, () => {
-  console.log('listening at port', port)
-})
+  console.log('listening at port', port);
+});
