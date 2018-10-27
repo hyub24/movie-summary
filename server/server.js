@@ -6,7 +6,7 @@ const db = require('../database/index.js');
 
 app.use(express.static(path.join(__dirname, '/../public')));
 
-app.get('/api/movies/', (req, res) => {
+app.get('/api/movies/:movieId/summary', (req, res) => {
   db.getSummary((err, results) => {
     if (err) res.status(500).send(err.message);
     res.send(results[0]);
