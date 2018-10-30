@@ -1,7 +1,8 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 import App from '../client/components/app.jsx';
 
-const wrapper = mount(<App />);
-
-expect(wrapper.find('div')).toExist();
+test('checks if app component has div with class name test', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('.test').exists()).toBe(true);
+});
