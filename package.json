@@ -10,7 +10,7 @@
   "scripts": {
     "seed-data": "node ./seed-data/faker.js; mongoimport --db movie-summary --file seed-data/summaries.json",
     "build": "webpack -d --watch",
-    "start": "nodemon server/server.js",
+    "start": "nodemon server/listen.js",
     "test": "jest"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "fs": "0.0.1-security",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",
+    "jest-fetch-mock": "^1.6.6",
     "mongo-seeding": "^3.0.0",
     "path": "^0.12.7",
     "supertest": "^3.3.0",
