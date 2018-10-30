@@ -9,8 +9,9 @@ const photos = ['https://s3-us-west-1.amazonaws.com/moovi-photos/0001.jpg', 'htt
   'https://s3-us-west-1.amazonaws.com/moovi-photos/download.jpeg'];
 
 const jsonMaker = (num = 100) => {
-  for (let i = 0; i < num; i + 1) {
+  for (let i = 0; i < num; i += 1) {
     const movie = {};
+    movie.id = i + 1;
     movie.title = faker.lorem.words();
     movie.rating = Math.floor(Math.random() * 100);
     movie.trailer = photos[Math.floor(Math.random() * 17)];
@@ -24,7 +25,7 @@ const jsonMaker = (num = 100) => {
     movie.year = year[Math.floor(Math.random() * 7)];
     movie.synopsis = faker.lorem.paragraph();
 
-    fs.appendFile('./seed-data/summaries/summaries.json', `${JSON.stringify(movie)}\n`, (err) => {
+    fs.appendFile('seed-data/summaries.json', `${JSON.stringify(movie)}\n`, (err) => {
       if (err) throw err;
     });
   }
