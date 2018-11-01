@@ -1,0 +1,75 @@
+.title {
+  width: 400px;
+  text-align: center;
+}
+
+.movie-box {
+  display: flex;
+}
+
+.trailer {
+  height: 300px;
+  width:  200px; 
+  opacity: 0.75; 
+}
+
+.hover {
+  height: 300px;
+  width:  200px;  
+  opacity: 1;
+}
+
+.movie-details {
+  height: 300px;
+  width:  200px; 
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+}
+
+.release-date {
+  text-align: center;
+}
+
+.score {
+  text-align: center;
+}
+
+.rating-duration {
+  text-align: center;
+  font-weight: bold;
+}
+
+.genre {
+  text-align: center;
+  font-weight: bold;
+}
+
+.synopsis-box {
+  width: 400px;
+}
+
+.synopsis-header {
+  text-align: center;
+}
+
+.synopsis {
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+}
+
+.photos-container {
+  overflow: hidden;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 150px;
+}
