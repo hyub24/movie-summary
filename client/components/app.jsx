@@ -2,7 +2,8 @@ import React from 'react';
 import style from '../styles/App.css';
 import RightArrow from './RightArrow.jsx';
 import LeftArrow from './LeftArrow.jsx';
-import Photo from './Photo.jsx'
+import Photo from './Photo.jsx';
+import Synopsis from './Synopsis.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -66,9 +67,14 @@ class App extends React.Component {
   }
 
   render() {
+
+    let titleAndYear = `${this.state.summary.title.toUpperCase()} (${this.state.summary.releaseDate.slice(-4)})`;
+
     return (
       <div>
-        <h2 className="title">{this.state.summary.title.toUpperCase()} ({this.state.summary.releaseDate.slice(-4)})</h2>
+        <div className="title-box">
+          <h2 className="title">{titleAndYear}</h2>
+        </div>
 
         <div className="movie-box">
           <div><img className="trailer" onMouseEnter={(e) => this.handleMouseEnter(e)} src={this.state.summary.trailer}/></div>
@@ -79,14 +85,13 @@ class App extends React.Component {
             <h2 className="score"><span>🥛</span> {this.state.summary.score}%</h2>
           </div>
         </div>
-
-        <div className="synopsis-box">
-          <h3 className="synopsis-header">Synopsis</h3>
-          <div className="synopsis">{this.state.summary.synopsis}</div>
-        </div>
+        
+        <Synopsis synopsis={this.state.summary.synopsis} title={titleAndYear} />
 
         <div className="carousel">
-          <LeftArrow prevPhoto={this.prevPhoto} />
+          <div className="left-arrow">
+            <LeftArrow prevPhoto={this.prevPhoto} />
+          </div>
           <div className="photos-container">
             <div className="photos"
               style={{
@@ -98,10 +103,11 @@ class App extends React.Component {
               })}
             </div>
           </div>
-          <RightArrow nextPhoto={this.nextPhoto} />
+          <div className="right-arrow">
+            <RightArrow nextPhoto={this.nextPhoto} />
+          </div>
         </div>
 
-        <div className="cast">{this.state.summary.cast}</div>
       </div>
     );
   }
