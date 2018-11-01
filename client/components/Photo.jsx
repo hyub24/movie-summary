@@ -1,12 +1,15 @@
 import React from 'react';
-import style from '../styles/Photo.css';
+import '../styles/Photo.css';
+import PropTypes from 'prop-types';
 
-const Photo = (props) => {
-  return (
-    <div>
-      <img className="photo" src={props.photo} />
-    </div>
-  )
-}
+const Photo = ({ photo }) => (
+  <div>
+    <img className="photo" alt="" src={photo} />
+  </div>
+);
+
+Photo.propTypes = {
+  photo: PropTypes.string.isRequired,
+};
 
 export default Photo;
