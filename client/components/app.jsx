@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/App.css';
-import RightArrow from './RightArrow.jsx';
-import LeftArrow from './LeftArrow.jsx';
-import Photo from './Photo.jsx';
-import Synopsis from './Synopsis.jsx';
+import RightArrow from './RightArrow';
+import LeftArrow from './LeftArrow';
+import Photo from './Photo';
+import Synopsis from './Synopsis';
 
 class App extends React.Component {
   constructor() {
@@ -32,12 +32,16 @@ class App extends React.Component {
             summary: data,
           });
         });
-      });
+      })
+      .catch(error => console.error(error));
   }
 
   nextPhoto() {
     const { index } = this.state;
     const { summary } = this.state;
+    if (summary.photos.length < 4) {
+      return;
+    }
     if (index !== summary.photos.length - 3) {
       this.setState(prevState => ({
         index: prevState.index + 1,
