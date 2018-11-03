@@ -20,7 +20,7 @@
 .main-photo-box {
   height: 300px;
   width: 200px;
-  background-color: black;
+  background-color: #4C4C4C;
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
 .movie-details {
   height: 300px;
   width:  200px; 
-  background-color: grey;
+  background-color: #262626;
   display: flex;
   flex-direction: column;
   /*justify-content: center;*/
@@ -51,6 +51,8 @@
 
 .release-date {
   text-align: center;
+  font-family: alternate-gothic-no-1-d,"Futura Condensed","Arial Narrow",Arial,sans-serif;
+  color: #FFF;
 }
 
 .score {
@@ -60,16 +62,24 @@
 .rating-duration {
   text-align: center;
   font-weight: bold;
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 0.929em;
+  color: #FFF;
 }
 
 .genre {
   text-align: center;
   font-weight: bold;
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 0.929em;
+  color: #FFF;
 }
 
 .synopsis-box {
   width: 400px;
-  background-color: black;
+  background-color: #4C4C4C;
   color: white;
   display: flex;
   flex-direction: column;
@@ -88,7 +98,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: grey;
+  background-color: #262626;
   width: 400px;
 }
 
@@ -111,5 +121,9 @@
 .right-arrow {
   padding-top: 50px;
   padding-left: 15px;
+}
+
+div {
+  outline: none !important;
 }
 
