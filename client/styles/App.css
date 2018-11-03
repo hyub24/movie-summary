@@ -17,16 +17,27 @@
   height: 300px;
 }
 
-.trailer {
+.main-photo-box {
   height: 300px;
-  width:  200px; 
-  opacity: 0.75; 
+  width: 200px;
+  background-color: black;
+  overflow: hidden;
 }
 
-.hover {
+.main-photo {
   height: 300px;
-  width:  200px;  
-  opacity: 1;
+  width:  200px; 
+  transition-timing-function: ease-in;
+  transition: 0.5s; 
+}
+
+.mouseEnter {  
+  opacity: 0.75;
+  transform: scale(1.1);
+  height: 300px;
+  width: 200px;
+  transition-timing-function: ease-in;
+  transition: 0.5s; 
 }
 
 .movie-details {

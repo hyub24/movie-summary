@@ -5,7 +5,7 @@ const Synopsis = ({ title, synopsis }) => (
   <div className="synopsis-box">
     <h3 className="synopsis-header">
       {title}
-      Synopsis
+      {' Synopsis'}
     </h3>
     <div className="synopsis">{synopsis}</div>
   </div>

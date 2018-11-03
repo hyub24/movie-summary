@@ -18,9 +18,13 @@ class App extends React.Component {
       },
       index: 0,
       translateValue: 0,
+      photoWidth: 100,
+      mainPhotoClass: 'main-photo',
     };
     this.nextPhoto = this.nextPhoto.bind(this);
     this.prevPhoto = this.prevPhoto.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
   componentDidMount() {
@@ -33,49 +37,48 @@ class App extends React.Component {
           });
         });
       })
-      .catch(error => console.error(error));
+      .catch(() => { this.setState({ summary: { title: 'ERROR: COULD NOT RETRIEVE DATA' } }); });
   }
 
   nextPhoto() {
     const { index } = this.state;
     const { summary } = this.state;
+    const { photoWidth } = this.state;
     if (summary.photos.length < 4) {
       return;
     }
     if (index !== summary.photos.length - 3) {
       this.setState(prevState => ({
         index: prevState.index + 1,
-        translateValue: prevState.translateValue - this.photoWidth(),
+        translateValue: prevState.translateValue - photoWidth,
       }));
     }
-  }
-
-  photoWidth() {
-    return document.querySelector('.photo').clientWidth;
   }
 
   prevPhoto() {
     const { index } = this.state;
+    const { photoWidth } = this.state;
     if (index !== 0) {
       this.setState(prevState => ({
         index: prevState.index - 1,
-        translateValue: prevState.translateValue + this.photoWidth(),
+        translateValue: prevState.translateValue + photoWidth,
       }));
     }
   }
 
-  handleMouseEnter(e) {
-    e.target.className = 'hover';
+  handleMouseEnter() {
+    this.setState({ mainPhotoClass: 'mouseEnter' });
   }
 
-  handleMouseLeave(e) {
-    e.target.className = 'trailer';
+  handleMouseLeave() {
+    this.setState({ mainPhotoClass: 'main-photo' });
   }
 
   render() {
     const { summary } = this.state;
     const titleAndYear = `${summary.title.toUpperCase()} (${summary.releaseDate.slice(-4)})`;
     const { translateValue } = this.state;
+    const { mainPhotoClass } = this.state;
 
     return (
       <div>
@@ -84,15 +87,15 @@ class App extends React.Component {
         </div>
 
         <div className="movie-box">
-          <div><img className="trailer" alt="movie poster" onMouseEnter={e => this.handleMouseEnter(e)} onMouseLeave={e => this.handleMouseLeave(e)} src={summary.trailer} /></div>
+          <div className="main-photo-box"><img className={mainPhotoClass} alt="movie poster" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} src={summary.mainPhoto} /></div>
           <div className="movie-details">
             <h2 className="release-date">{summary.releaseDate}</h2>
             <div className="rating-duration">
               {summary.rating}
-              ,
+              {', '}
               {summary.duration}
             </div>
-            <div className="genre">{summary.genre.toUpperCase()}</div>
+            <div className="genre">{summary.genre}</div>
             <h2 className="score">
               <span role="img" aria-label="milk">🥛</span>
               {summary.score}
@@ -115,7 +118,7 @@ class App extends React.Component {
                 transition: 'transform ease-out 0.45s',
               }}
             >
-              {summary.photos.map(ele => <Photo photo={ele} />)}
+              {summary.photos.map((ele, index) => <Photo photo={ele} key={index} />)}
             </div>
           </div>
           <div className="right-arrow">
