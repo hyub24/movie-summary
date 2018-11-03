@@ -14,7 +14,6 @@ app.get('/api/movies/:movieId/summary', (req, res) => {
         res.send(results[i]);
       }
     }
-    res.end();
   });
 });
 
