@@ -7,7 +7,7 @@ services:
   #     - '3000:3000'
 
   summaryserver:
-    build: /
+    build: ./
     ports:
       - '3007:3007'
     links:
