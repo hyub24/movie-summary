@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  # proxyserver:
+  #   build: summaryProxyServer/
+  #   ports: 
+  #     - '3000:3000'
+
+  summaryserver:
+    build: /
+    ports:
+      - '3007:3007'
+    links:
+      - database
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - database

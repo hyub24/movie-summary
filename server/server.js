@@ -12,6 +12,7 @@ app.get('/api/movies/:movieId/summary', (req, res) => {
     for (let i = 0; i < results.length; i += 1) {
       if (results[i].id === Number(req.params.movieId)) {
         res.send(results[i]);
+        break;
       }
     }
   });
