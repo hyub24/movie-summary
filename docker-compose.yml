@@ -5,7 +5,7 @@ services:
   summaryserver:
     build: ./
     ports:
-      - '3007:3007'
+      - '80:3007'
     links:
       - database
 
