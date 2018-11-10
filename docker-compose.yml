@@ -1,10 +1,6 @@
 version: '3'
 
 services:
-  # proxyserver:
-  #   build: summaryProxyServer/
-  #   ports: 
-  #     - '3000:3000'
 
   summaryserver:
     build: ./
