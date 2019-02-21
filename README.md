@@ -1,6 +1,6 @@
 # Moovi 
 
-> Movie details module with synopsis and photo carousel
+> Movie details module with synopsis and photo carousel made with React and Webpack. Deployed with Docker on AWS EC2 instance.
 
 ## Related Projects
 
