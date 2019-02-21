@@ -1,6 +1,6 @@
-# Project Name
+# Moovi 
 
-> Project description
+> Movie details module with synopsis and photo carousel
 
 ## Related Projects
 
@@ -8,16 +8,6 @@
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
 
 ## Requirements
 
