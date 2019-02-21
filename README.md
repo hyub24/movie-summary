@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Team-DAD/movie-reviews
+  - https://github.com/Team-DAD/movie-dada
+  - https://github.com/Team-DAD/movie-times
 
 ## Requirements
 
